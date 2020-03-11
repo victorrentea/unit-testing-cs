@@ -9,7 +9,6 @@ namespace NUnitTests
         public Tests()
         {
             Console.WriteLine("New");
-
         }
         [Test, Sequential]
         public void MyTestSeq(
