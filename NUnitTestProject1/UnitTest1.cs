@@ -10,7 +10,7 @@ namespace NUnitTests
         {
             Console.WriteLine("New");
         }
-        [Test, Sequential]
+        [Test, Sequential, Ignore("because")]
         public void MyTestSeq(
            [Values(1, 2, 3)] int x,
            [Values("A", "B")] string s)
