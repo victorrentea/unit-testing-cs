@@ -30,4 +30,35 @@ namespace ProdCode.Mutation
 			}
 		}
 	}
+
+	//class MyService
+	//{
+	//	private readonly Clock clock;
+	//	public void method(DateTime now)
+	//	{
+	//		// or 
+	//		DateTime now2 = clock.getNow();
+
+	//		// this does not allow truncation:
+	//		//if (now2 - somePrevTime > 100 minutes) {
+	//		//	stuff
+	//		//}
+
+	//		DateTime now3 = TimeMachine.getNow();
+	//	}
+	//}
+	//class TimeMachine
+	//{
+	//	public static DateTime testTime; // only used from the tests
+	//	internal static DateTime getNow()
+	//	{
+	//		if (testTime != null)
+	//		{
+	//			return new DateTime();
+	//		} else
+	//		{
+	//			return testTime;
+	//		}
+	//	}
+	//}
 }

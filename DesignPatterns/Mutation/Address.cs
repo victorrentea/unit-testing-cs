@@ -12,5 +12,6 @@ namespace ProdCode.Mutation
         public int StreetNumber;
         public string City;
         public string Country;
+        public Customer customer;
     }
 }

@@ -6,7 +6,15 @@ using System.Text;
 
 namespace NUnitTests.Mutation
 {
-    class CustomerValidatorTest: IDisposable
+    class MySuper
+    {
+        [SetUp]
+        public void Init()
+        {
+            Console.WriteLine("Super");
+        }
+    }
+    class CustomerValidatorTest: MySuper, IDisposable
     {
         private readonly CustomerValidator validator = new CustomerValidator();
         private Customer customer;
@@ -42,6 +50,7 @@ namespace NUnitTests.Mutation
         [Test]
         public void FailsForCustomerWithEptyName()
         {
+            //customer.Address.customer == null
             customer.Name = "";
             Assert.Catch(() => validator.Validate(customer));
         }
@@ -64,5 +73,7 @@ namespace NUnitTests.Mutation
         {
             //replacement for [TearDown] in xUnit
         }
+    }
+    public class CustomerObjectMother { 
     }
 }

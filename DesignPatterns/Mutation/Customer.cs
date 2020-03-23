@@ -11,7 +11,13 @@ namespace ProdCode.Mutation
         public string Name;
         public string Phone;
         public List<string> Labels = new List<string>();
-        public Address Address;
+        public Address Address {
+            get { return Address; }
+            set {
+                Address = value;
+                value.customer = this;
+            }
+        } 
         public DateTime CreateDate;
 
     }

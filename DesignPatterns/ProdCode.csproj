@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Hello.cs" />
     <Compile Include="Mutation\Address.cs" />
+    <Compile Include="Mutation\Clock.cs" />
     <Compile Include="Mutation\Customer.cs" />
     <Compile Include="Mutation\CustomerValidator.cs" />
     <Compile Include="Telemetry\ClientConfiguration.cs" />
