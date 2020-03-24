@@ -23,13 +23,7 @@ namespace XUnitTests
         [Fact]
         public void Add_writes_to_database()
         {
-            // In-memory database only exists while the connection is open
-            var connection = new SqliteConnection("DataSource=:memory:");
-            //var connection = databaseFixture.Db;
-            connection.Open();
-
-            try
-            {
+            var connection = databaseFixture.connection;
                 var options = new DbContextOptionsBuilder<BloggingContext>()
                     .UseSqlite(connection)
                     .Options;
@@ -54,31 +48,26 @@ namespace XUnitTests
                     Assert.Equal(1, context.Blogs.Count());
                     Assert.Equal("https://example.com", context.Blogs.Single().Url);
                 }
-            }
-            finally
-            {
-                connection.Close();
-            }
         }
     }
     public class DatabaseFixture : IDisposable
     {
         public DatabaseFixture()
         {
-            Db = new SqliteConnection("DataSource=:memory:");
-            Db.Open();
+            connection = new SqliteConnection("DataSource=:memory:");
+            connection.Open();
 
             // ... initialize data in the test database ...
         }
 
         public void Dispose()
         {
-            Db.Close();
+            connection.Close();
 
             // ... clean up test data from the database ...
         }
 
-        public SqliteConnection Db { get; private set; }
+        public SqliteConnection connection { get; private set; }
     }
 
     [CollectionDefinition("db")]
