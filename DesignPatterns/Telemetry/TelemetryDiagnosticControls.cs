@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace ProdCode.Telemetry
 {
-	class TelemetryDiagnosticControls
+	public class TelemetryDiagnosticControls
 	{
 		public const string DIAGNOSTIC_CHANNEL_CONNECTION_STRING = "*111#";
 
-		private TelemetryClient telemetryClient;
+		private ITelemetryClient telemetryClient;
 		public string diagnosticInfo = "";
 
-		public void SetTelemetryClient(TelemetryClient telemetryClient)
+		public TelemetryDiagnosticControls(ITelemetryClient telemetryClient)
 		{
 			this.telemetryClient = telemetryClient;
 		}

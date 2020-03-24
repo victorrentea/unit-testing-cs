@@ -21,7 +21,7 @@ namespace ProdCode.Tdd
                 }
                 if (player1Points - player2Points == 1)
                 {
-                    return "Advantage Player1x";
+                    return "Advantage Player1";
                 }
                 if (player2Points - player1Points == 1)
                 {

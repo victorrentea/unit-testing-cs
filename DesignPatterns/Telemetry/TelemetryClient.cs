@@ -2,7 +2,7 @@
 
 namespace ProdCode.Telemetry
 {
-	class TelemetryClient
+	public class TelemetryClient : ITelemetryClient
 	{
 		public const string DIAGNOSTIC_MESSAGE = "AT#UD";
 
