@@ -51,6 +51,7 @@
     <Compile Include="Mutation\Clock.cs" />
     <Compile Include="Mutation\Customer.cs" />
     <Compile Include="Mutation\CustomerValidator.cs" />
+    <Compile Include="Tdd\TennisGame.cs" />
     <Compile Include="Telemetry\ClientConfiguration.cs" />
     <Compile Include="Telemetry\TelemetryClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
