@@ -10,23 +10,23 @@ using BusinessLogic;
 
 namespace XUnitTests
 {
-    [Collection("db")]
+    //[Collection("db")]
     public class DBTest
     {
-        DatabaseFixture databaseFixture;
+        //DatabaseFixture databaseFixture;
 
-        public DBTest(DatabaseFixture databaseFixture)
-        {
-            this.databaseFixture = databaseFixture;
-        }
+        //public DBTest(DatabaseFixture databaseFixture)
+        //{
+        //    this.databaseFixture = databaseFixture;
+        //}
 
         [Fact]
         public void Add_writes_to_database()
         {
             // In-memory database only exists while the connection is open
-            //var connection = new SqliteConnection("DataSource=:memory:");
-            var connection = databaseFixture.Db;
-            //connection.Open();
+            var connection = new SqliteConnection("DataSource=:memory:");
+            //var connection = databaseFixture.Db;
+            connection.Open();
 
             try
             {
@@ -57,7 +57,7 @@ namespace XUnitTests
             }
             finally
             {
-                //connection.Close();
+                connection.Close();
             }
         }
     }

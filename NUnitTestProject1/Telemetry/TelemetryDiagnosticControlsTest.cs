@@ -20,7 +20,8 @@ namespace NUnitTests.Telemetry
         [Test]
         public void ThrowsIfNotOnline()
         {
-            clientMock.Setup(c => c.GetOnlineStatus()).Returns(false);
+            // ClientMock is now used just as a Stub
+            clientMock.Setup(c => c.GetOnlineStatus()).Returns(false); 
             Assert.Throws<Exception>(() => controls.CheckTransmission());
         }
 
@@ -29,7 +30,7 @@ namespace NUnitTests.Telemetry
         {
             clientMock.Setup(c => c.GetOnlineStatus()).Returns(true);
             controls.CheckTransmission();
-            clientMock.Verify(c => c.Disconnect());
+            clientMock.Verify(c => c.Disconnect()); // this means you are using the ClientMock as MOCK
         }
         [Test]
         public void Sends()
@@ -43,6 +44,8 @@ namespace NUnitTests.Telemetry
         {
             clientMock.Setup(c => c.GetOnlineStatus()).Returns(true);
             clientMock.Setup(c => c.Receive()).Returns("GRANPA");
+
+            Assert.AreEqual("", controls.diagnosticInfo); // dubious. too much.
 
             controls.CheckTransmission();
             // clientMock.Verify(c => c.Receive()); // VERIFY IS ALWAYS REDUNDANT FOR METHODS THAT YOU PROGRAM (setUp)
