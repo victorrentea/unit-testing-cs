@@ -10,15 +10,15 @@ using BusinessLogic;
 
 namespace XUnitTests
 {
-    //[Collection("db")]
+    [Collection("db")]
     public class DBTest
     {
-        //DatabaseFixture databaseFixture;
+        DatabaseFixture databaseFixture;
 
-        //public DBTest(DatabaseFixture databaseFixture)
-        //{
-        //    this.databaseFixture = databaseFixture;
-        //}
+        public DBTest(DatabaseFixture databaseFixture)
+        {
+            this.databaseFixture = databaseFixture;
+        }
 
         [Fact]
         public void Add_writes_to_database()
